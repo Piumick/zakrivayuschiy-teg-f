@@ -2,4 +2,12 @@
 :root{
   --main-font: 'Inter-Variable';
   --accent-font: 'PressStart2P';
+  --background-color: #fff;
+  --main-color: #000;
+  --regular-font-weight: 400;
+  --accent-font-weight: 700;
+  --background: repeating-linear-gradient(180deg, #d3d3d3 2px, transparent 2px, transparent 4px, #d3d3d3 4px, #d3d3d3 6px), 
+  repeating-linear-gradient(90deg, #d3d3d3 2px, transparent 2px, transparent 4px, #d3d3d3 4px, #d3d3d3 6px),
+  linear-gradient(180deg, #E7E7E7 0.01%, #1A1A1A 100%);
+  
 }
