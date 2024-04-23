@@ -28,6 +28,7 @@
 }
 
 .header{
+  border: 2px solid var(--main-color);
   margin: 100px auto;
   background-color: var(--background-color);
   width: min(100%, 700px);
@@ -68,8 +69,22 @@
 }
 
 .theme-menu__button {
+  position: relative;
+  text-transform: uppercase;
   background-color:  transparent;
   border: none;
+}
+
+.theme-menu__button:disabled {
+  opacity: 0.6;
+
+}
+
+.theme-menu__button:disabled::before {
+  content: "▶";
+  position: absolute;
+  left: -20px;
+  animation: arrow 1s ease-in-out infinite;
 }
 
 .card__list{
