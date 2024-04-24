@@ -17,6 +17,17 @@
   50% { left: -16px;}
   100% {left: -20;}
 }
+
 @keyframes underline {
   0%{ transform: scaleX(100%) ;}
+}
+
+@keyframes button-focus {
+  0% {box-shadow: none;}
+  100% {box-shadow: 2px 2px 0px var(--main-color);}
+}
+
+@keyframes button-hover {
+  0% {}
+  100% {transform: scaleX(1);}
 }
