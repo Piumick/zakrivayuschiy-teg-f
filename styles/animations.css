@@ -23,11 +23,29 @@
 }
 
 @keyframes button-focus {
-  0% {box-shadow: none;}
-  100% {box-shadow: 2px 2px 0px var(--main-color);}
+  100% {box-shadow: 2px 2px 0px var(--color);}
 }
 
 @keyframes button-hover {
-  0% {}
   100% {transform: scaleX(1);}
+}
+
+@keyframes like-focus {
+  100% {border: 2px solid var(--main-color);}
+}
+@keyframes fill-hover {
+  0% {fill: transparent}
+  100% {fill: var(--main-color);}
+}
+
+@keyframes grow {
+  0% {scale: 1;}
+  50% {scale: 1.5;}
+  100% {scale: 1;}
+}
+
+@keyframes sparks {
+  0% {fill: transparent;}
+  50% {fill: var(--heart-color)}
+  100% {fill: transparent}
 }

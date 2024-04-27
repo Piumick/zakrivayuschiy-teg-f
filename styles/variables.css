@@ -4,6 +4,8 @@
   --accent-font: 'PressStart2P';
   --background-color: #fff;
   --main-color: #000;
+  --color: #fff;
+  --heart-color: red;
   --regular-font-weight: 400;
   --accent-font-weight: 700;
   --background: repeating-linear-gradient(180deg, #d3d3d3 2px, transparent 2px, transparent 4px, #d3d3d3 4px, #d3d3d3 6px), 
