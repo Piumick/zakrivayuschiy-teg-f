@@ -25,6 +25,7 @@
   background-size: cover;
   background-attachment: fixed;
   color: var(--main-color);
+  font-weight: var(--regular-font-weight);
 }
 
 .header {
@@ -33,12 +34,11 @@
   background-color: var(--background-color);
   width: min(100%, 700px);
   height: clamp(20.438rem, 19.535rem + 3.85vw, 23rem);
-  font-family: "PressStart2P";
+  font-family: var(--accent-font);
   display: flex;
   flex-direction: column;
   justify-content: end;
   gap: 25px;
-  
 }
 
 .logo-group {
@@ -48,13 +48,13 @@
   justify-content: center;
   gap: 20px;
   align-self: center;
-  
 }
 
 .title {
   text-transform: uppercase;
   font-size: clamp(3.063rem, 2.71rem + 1.502vw, 4.063rem);
 }
+
 .mini-title {
   text-transform: uppercase;
   font-size: clamp(0.875rem, 0.677rem + 0.845vw, 1.438rem);
@@ -69,8 +69,8 @@
 .theme-menu__list {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  font-size: 14px
+  gap: 10px;
+  font-size: 14px;
 }
 
 .theme-menu__button {
@@ -84,7 +84,7 @@
 }
 
 .theme-menu__button::after {
-  content:"";
+  content: "";
   background-color: var(--main-color);
   height: 2px;
   width: 100%;
@@ -158,7 +158,6 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-  
 }
 
 .img-filter-sepia {
@@ -186,10 +185,7 @@
 }
 
 .img-filter-brightness {
-  filter: brightness(120%)
-   contrast(120%)
-   hue-rotate(20deg)
-   blur(2px);
+  filter: brightness(120%) contrast(120%) hue-rotate(20deg) blur(2px);
 }
 
 .wathermark {
@@ -247,7 +243,7 @@
   content: "";
   width: 100%;
   height: 100%;
-  background-color: var(--color);
+  background-color: var(--extra-color);
   transform-origin: left;
   transform: scaleX(0);
   animation: button-hover 0.5s ease-in-out forwards;
@@ -261,25 +257,24 @@
 }
 
 .button-text {
-  color: var(--color);
+  color: var(--extra-color);
   background-color: transparent;
   z-index: 2;
   mix-blend-mode: difference;
 }
 
 .card__like-button {
-  
   width: 130px;
   height: 38px;
   align-self: center;
   align-content: center;
   font-family: "PressStart2P", serif;
-  
+
   font-size: 14px;
   border: 2px solid var(--main-color);
 }
 
-.footer-button{
+.footer-button {
   gap: 8px;
   background-color: var(--background-color);
   display: flex;
@@ -292,7 +287,6 @@
   border: 2px solid var(--main-color);
   width: clamp(19.125rem, 18.487rem + 2.723vw, 20.938rem);
 }
-
 
 .floppy2 {
   width: 28px;
@@ -314,32 +308,40 @@
   width: 28px;
   height: 28px;
 }
+
 .contour {
   fill: var(--main-color);
 }
+
 .sparks {
   fill: transparent;
 }
+
 .core {
   fill: transparent;
   transition: fill 0.3s 0.03s;
 }
+
 .card__icon-button:hover .core {
   fill: var(--main-color);
   transition: fill 0.3s;
 }
+
 .card__icon-button:active .core {
   fill: var(--heart-color);
   transition: fill 0.3s;
 }
+
 .main-body {
   fill: transparent;
   transition: fill 0.3s;
 }
+
 .card__icon-button:hover .main-body {
   fill: var(--main-color);
   transition: fill 0.3s 0.05s;
 }
+
 .card__icon-button:active .main-body {
   fill: var(--heart-color);
   transition: fill 0.3s 0.05s;
@@ -347,19 +349,18 @@
 
 .like-icon.is-liked .core {
   transition: fill 0.3s;
-  fill: var(--heart-color)
+  fill: var(--heart-color);
 }
 
 .like-icon.is-liked .main-body {
   transition: fill 0.3s 0.05s;
-  fill: var(--heart-color)
+  fill: var(--heart-color);
 }
 
 .like-icon.is-liked .contour {
   transition: fill 0.3s 0.06s;
   fill: var(--heart-color);
 }
-
 
 .like-icon.is-liked .heart {
   transform-origin: center;
@@ -368,11 +369,11 @@
 
 .like-icon.is-liked .sparks {
   animation: sparks 0.3s ease-in 0.3s;
-} 
+}
 
 .modal[open] {
   width: clamp(21.313rem, 21.048rem + 1.127vw, 22.063rem);
-  display:flex;
+  display: flex;
   flex-direction: column;
   gap: 30px;
   padding: 30px;
@@ -383,8 +384,8 @@
 .modal__text-container {
   display: flex;
   gap: 20px;
-  
 }
+
 .modal__text {
   font-family: var(--accent-font);
   text-transform: uppercase;
@@ -400,10 +401,10 @@
 }
 
 .modal__button {
-  padding: 12.5px 0 ;
+  padding: 12.5px 0;
 }
 
 .modal::backdrop {
   background-color: rgb(0 0 0 / 0.3);
   backdrop-filter: blur(7px);
-} 
+}
