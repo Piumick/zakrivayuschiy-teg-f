@@ -23,8 +23,9 @@
 }
 
 @keyframes button-focus {
-  100% {box-shadow: 2px 2px 0px var(--color);}
+  100% {box-shadow: 2px 2px 0px var(--main-color);}
 }
+
 
 @keyframes button-hover {
   100% {transform: scaleX(1);}

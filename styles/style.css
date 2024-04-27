@@ -34,9 +34,11 @@
   width: min(100%, 700px);
   height: clamp(20.438rem, 19.535rem + 3.85vw, 23rem);
   font-family: "PressStart2P";
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
   gap: 25px;
-  grid-template-rows: 2fr 1fr;
+  
 }
 
 .logo-group {
@@ -46,26 +48,29 @@
   justify-content: center;
   gap: 20px;
   align-self: center;
-  align-self: end;
+  
 }
 
 .title {
   text-transform: uppercase;
-  font-size: clamp(2.875rem, 2.457rem + 1.784vw, 4.063rem);
+  font-size: clamp(3.063rem, 2.71rem + 1.502vw, 4.063rem);
 }
 .mini-title {
+  text-transform: uppercase;
   font-size: clamp(0.875rem, 0.677rem + 0.845vw, 1.438rem);
 }
 
 .theme-menu {
-  align-self: top;
-  justify-self: center;
+  padding-left: 18px;
+  align-self: center;
+  margin-bottom: 25px;
 }
 
 .theme-menu__list {
   display: flex;
   flex-direction: column;
   gap: 14px;
+  font-size: 14px
 }
 
 .theme-menu__button {
@@ -73,9 +78,23 @@
   text-transform: uppercase;
   background-color: transparent;
   border: none;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+}
+
+.theme-menu__button::after {
+  content:"";
+  background-color: var(--main-color);
+  height: 2px;
+  width: 100%;
+  flex-shrink: 0;
+  transform: scaleX(0);
+  transform-origin: left;
 }
 
 .theme-menu__button:disabled {
+  transition: 0.3s ease;
   opacity: 0.6;
 }
 
@@ -84,6 +103,14 @@
   position: absolute;
   left: -20px;
   animation: arrow 1s ease-in-out infinite;
+}
+
+.theme-menu__button:focus {
+  outline: none;
+}
+
+.theme-menu__button:focus-visible::after {
+  animation: button-hover 0.3s ease-in-out forwards;
 }
 
 .card__list {
@@ -101,7 +128,15 @@
   border: 2px solid var(--main-color);
 }
 
+.card__title {
+  font-size: 18px;
+  line-height: 121%;
+  padding: 5px 10px;
+}
+
 .card__text-container {
+  font-size: 18px;
+  line-height: 21px;
   padding: 25px;
   display: flex;
   flex-direction: column;
@@ -127,11 +162,11 @@
 }
 
 .img-filter-sepia {
-  filter: sepia(90%);
+  filter: sepia(50%);
 }
 
 .img-filter-hue-rotate {
-  filter: hue-rotate(30deg);
+  filter: hue-rotate(180deg);
 }
 
 .img-filter-gray-scale {
@@ -139,28 +174,28 @@
 }
 
 .img-filter-saturate {
-  filter: saturate(300%);
+  filter: saturate(250%);
 }
 
 .img-filter-negative {
-  filter: invert(80%);
+  filter: invert(100%);
 }
 
 .img-filter-blur {
-  filter: blur(10px);
+  filter: blur(3px);
 }
 
 .img-filter-brightness {
-  filter: brightness(80%);
-  filter: contrast(70%);
-  filter: sepia(50%);
-  filter: hue-rotate(180deg);
+  filter: brightness(120%)
+   contrast(120%)
+   hue-rotate(20deg)
+   blur(2px);
 }
 
 .wathermark {
   margin-top: 25px;
-  margin-right: 13px;
-  align-self: top;
+  margin-right: clamp(0.813rem, 0.548rem + 1.127vw, 1.563rem);
+  align-self: start;
   justify-self: right;
   font-size: 14px;
   font-family: var(--accent-font);
@@ -179,7 +214,7 @@
   align-self: flex-end;
   justify-self: flex-end;
   display: flex;
-  gap: 12px;
+  gap: 5px;
   margin: 0 25px 25px 0;
 }
 
@@ -225,18 +260,23 @@
   background-color: transparent;
 }
 
-.card__like-button {
+.button-text {
+  color: var(--color);
   background-color: transparent;
   z-index: 2;
   mix-blend-mode: difference;
+}
+
+.card__like-button {
+  
   width: 130px;
   height: 38px;
   align-self: center;
   align-content: center;
   font-family: "PressStart2P", serif;
-  color: var(--color);
+  
   font-size: 14px;
-  border: 2px solid var(--color);
+  border: 2px solid var(--main-color);
 }
 
 .footer-button{
@@ -244,7 +284,6 @@
   background-color: var(--background-color);
   display: flex;
   flex-direction: column;
-  align-items: center;
   padding: 15px;
   align-items: center;
   font-family: "PressStart2P", serif;
@@ -252,11 +291,24 @@
   margin: 50px auto 103px;
   border: 2px solid var(--main-color);
   width: clamp(19.125rem, 18.487rem + 2.723vw, 20.938rem);
-  height: clamp(5.25rem, 5.888rem + -2.723vw, 3.438rem);
-  justify-self: center;
-  align-self: center;
 }
 
+
+.floppy2 {
+  width: 28px;
+  height: 28px;
+}
+
+@media (min-width: 1440px) {
+  .footer-button {
+    flex-direction: row;
+  }
+
+  .floppy2 {
+    width: 21px;
+    height: 21px;
+  }
+}
 
 .footer__dec {
   width: 28px;
@@ -330,7 +382,14 @@
 
 .modal__text-container {
   display: flex;
-  gap: 12px;
+  gap: 20px;
+  
+}
+.modal__text {
+  font-family: var(--accent-font);
+  text-transform: uppercase;
+  font-size: 14px;
+  line-height: 150%;
 }
 
 .floppy {
