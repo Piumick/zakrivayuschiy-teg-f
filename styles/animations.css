@@ -13,27 +13,13 @@
 Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 */
 @keyframes arrow{
-  0% { left: -20;}
-  50% { left: -16px;}
-  100% {left: -20;}
-}
-
-@keyframes underline {
-  0%{ transform: scaleX(100%) ;}
+  100% { left: -16px;}
 }
 
 @keyframes button-focus {
   100% {box-shadow: 2px 2px 0px var(--main-color);}
 }
 
-
-@keyframes button-hover {
-  100% {transform: scaleX(1);}
-}
-
-@keyframes like-focus {
-  100% {border: 2px solid var(--main-color);}
-}
 @keyframes fill-hover {
   0% {fill: transparent}
   100% {fill: var(--main-color);}
@@ -41,12 +27,12 @@
 
 @keyframes grow {
   0% {scale: 1;}
-  50% {scale: 1.5;}
-  100% {scale: 1;}
+  100% {scale: 1.5;}
+  
 }
 
 @keyframes sparks {
   0% {fill: transparent;}
-  50% {fill: var(--heart-color)}
-  100% {fill: transparent}
+  100% {fill: var(--heart-color)}
+  
 }

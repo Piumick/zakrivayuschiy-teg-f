@@ -17,7 +17,7 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  font-family: var(--main-font), serif;
+  font-family: var(--main-font), sans-serif;
   background-color: var(--background-color);
   background-image: var(--background);
   background-position: center;
@@ -33,12 +33,11 @@
   margin: 100px auto;
   background-color: var(--background-color);
   width: min(100%, 700px);
-  height: clamp(20.438rem, 19.535rem + 3.85vw, 23rem);
   font-family: var(--accent-font);
   display: flex;
   flex-direction: column;
   justify-content: end;
-  gap: 25px;
+  gap: 23px;
 }
 
 .logo-group {
@@ -47,7 +46,7 @@
   align-items: center;
   justify-content: center;
   gap: 20px;
-  align-self: center;
+  padding-top: clamp(7.5rem, 7.148rem + 1.502vw, 8.5rem);
 }
 
 .title {
@@ -69,11 +68,12 @@
 .theme-menu__list {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
   font-size: 14px;
 }
 
 .theme-menu__button {
+  cursor: pointer;
   position: relative;
   text-transform: uppercase;
   background-color: transparent;
@@ -81,6 +81,7 @@
   display: flex;
   flex-direction: column;
   place-items: center;
+  transition: 0.3s linear;
 }
 
 .theme-menu__button::after {
@@ -94,7 +95,6 @@
 }
 
 .theme-menu__button:disabled {
-  transition: 0.3s ease;
   opacity: 0.6;
 }
 
@@ -102,15 +102,20 @@
   content: "▶";
   position: absolute;
   left: -20px;
-  animation: arrow 1s ease-in-out infinite;
+  top: 0;
+  animation: arrow 0.5s ease-in-out infinite alternate;
 }
 
-.theme-menu__button:focus {
-  outline: none;
+.theme-menu__button:hover{
+  opacity: 0.6;
+}
+
+.theme-menu__button:focus-visible {
+  opacity: 0.6;
 }
 
 .theme-menu__button:focus-visible::after {
-  animation: button-hover 0.3s ease-in-out forwards;
+  transform: scaleX(1);
 }
 
 .card__list {
@@ -131,6 +136,7 @@
 .card__title {
   font-size: 18px;
   line-height: 121%;
+  font-variation-settings: 'wght' var(--accent-font-weight), 'wdth' 110, 'opsz' 0;
   padding: 5px 10px;
 }
 
@@ -156,8 +162,9 @@
   grid-column-start: 1;
   grid-column-end: 3;
   width: 100%;
-  height: 100%;
-  object-fit: contain;
+  height: clamp(23.188rem, 16.035rem + 30.516vw, 43.5rem);
+  object-position: center;
+  object-fit: cover;
 }
 
 .img-filter-sepia {
@@ -205,6 +212,14 @@
   opacity: 0.5;
 }
 
+@supports((text-stroke: 1px var(--background-color)) or (-webkit-text-stroke: 1px var(--background-color))) {
+  .wathermark {
+      -webkit-text-stroke: 1px var(--background-color);
+      text-stroke: 1px var(--background-color);
+      text-shadow: none;
+  }
+} 
+
 .card__button {
   background-color: transparent;
   align-self: flex-end;
@@ -215,25 +230,39 @@
 }
 
 .card__icon-button {
+  display: flex;
+  place-items: center;
+  cursor: pointer;
   background-color: transparent;
   height: 38px;
   border: 2px solid transparent;
+  transition: 0.3s ease;
 }
 
 .card__icon-button:focus-visible {
-  animation: like-focus 0.3s ease forwards;
+  border: 2px solid var(--main-color);
 }
 
+.theme-menu__button,
 .card__icon-button:focus,
 .button:focus {
   outline: none;
 }
 
-.button:focus-visible {
-  animation: button-focus 0.3s ease forwards;
+.button { 
+  cursor: pointer;
+  position: relative;
+  font-family: var(--accent-font);
+  border: 2px solid var(--main-color);
+  background-color: transparent;
+  transition: 0.3s ease;
 }
 
-.button:hover::before {
+.button:focus-visible {
+  box-shadow: 2px 2px 0px var(--main-color);
+}
+
+.button::before {
   position: absolute;
   mix-blend-mode: difference;
   z-index: 0;
@@ -246,14 +275,11 @@
   background-color: var(--extra-color);
   transform-origin: left;
   transform: scaleX(0);
-  animation: button-hover 0.5s ease-in-out forwards;
+  transition: 0.5s ease-in-out;
 }
 
-.button {
-  font-family: var(--accent-font);
-  border: 2px solid var(--main-color);
-  position: relative;
-  background-color: transparent;
+.button:hover::before {
+  transform: scaleX(1);
 }
 
 .button-text {
@@ -268,8 +294,7 @@
   height: 38px;
   align-self: center;
   align-content: center;
-  font-family: "PressStart2P", serif;
-
+  font-family: var(--accent-font), sans-serif;;
   font-size: 14px;
   border: 2px solid var(--main-color);
 }
@@ -281,14 +306,14 @@
   flex-direction: column;
   padding: 15px;
   align-items: center;
-  font-family: "PressStart2P", serif;
+  font-family: var(--accent-font), sans-serif;;
   font-size: 14px;
   margin: 50px auto 103px;
   border: 2px solid var(--main-color);
   width: clamp(19.125rem, 18.487rem + 2.723vw, 20.938rem);
 }
 
-.floppy2 {
+.floppy-button {
   width: 28px;
   height: 28px;
 }
@@ -298,19 +323,15 @@
     flex-direction: row;
   }
 
-  .floppy2 {
+  .floppy-button {
     width: 21px;
     height: 21px;
   }
 }
 
-.footer__dec {
-  width: 28px;
-  height: 28px;
-}
-
 .contour {
   fill: var(--main-color);
+  transition: fill 0.3s 0.06s linear;
 }
 
 .sparks {
@@ -319,56 +340,56 @@
 
 .core {
   fill: transparent;
-  transition: fill 0.3s 0.03s;
+  transition: fill 0.3s 0.03s linear;
 }
 
 .card__icon-button:hover .core {
   fill: var(--main-color);
-  transition: fill 0.3s;
+  transition: fill 0.3s linear;
 }
 
 .card__icon-button:active .core {
   fill: var(--heart-color);
-  transition: fill 0.3s;
+  transition: fill 0.3s linear;
 }
 
 .main-body {
   fill: transparent;
-  transition: fill 0.3s;
+  transition: fill 0.3s linear;
 }
 
 .card__icon-button:hover .main-body {
   fill: var(--main-color);
-  transition: fill 0.3s 0.05s;
+  transition: fill 0.3s 0.05s linear;
 }
 
 .card__icon-button:active .main-body {
   fill: var(--heart-color);
-  transition: fill 0.3s 0.05s;
+  transition: fill 0.3s 0.05s linear;
 }
 
 .like-icon.is-liked .core {
-  transition: fill 0.3s;
+  transition: fill 0.3s linear;
   fill: var(--heart-color);
 }
 
 .like-icon.is-liked .main-body {
-  transition: fill 0.3s 0.05s;
+  transition: fill 0.3s 0.05s linear;
   fill: var(--heart-color);
 }
 
 .like-icon.is-liked .contour {
-  transition: fill 0.3s 0.06s;
+  transition: fill 0.3s 0.06s linear;
   fill: var(--heart-color);
 }
 
 .like-icon.is-liked .heart {
   transform-origin: center;
-  animation: grow 0.3s ease-in;
+  animation: grow 0.3s linear alternate;
 }
 
 .like-icon.is-liked .sparks {
-  animation: sparks 0.3s ease-in 0.3s;
+  animation: sparks 0.3s linear 0.3s alternate;
 }
 
 .modal[open] {
@@ -387,7 +408,7 @@
 }
 
 .modal__text {
-  font-family: var(--accent-font);
+  font-family: var(--accent-font), sans-serif;;
   text-transform: uppercase;
   font-size: 14px;
   line-height: 150%;
@@ -401,10 +422,10 @@
 }
 
 .modal__button {
-  padding: 12.5px 0;
+  padding: 9px 0;
 }
 
 .modal::backdrop {
-  background-color: rgb(0 0 0 / 0.3);
-  backdrop-filter: blur(7px);
+  background-color: rgb(0 0 0);
+  opacity: 75%;
 }
