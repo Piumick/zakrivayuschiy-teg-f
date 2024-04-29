@@ -34,5 +34,4 @@
 @keyframes sparks {
   0% {fill: transparent;}
   100% {fill: var(--heart-color)}
-  
 }
